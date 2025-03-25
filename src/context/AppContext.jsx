@@ -1,13 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import { database, ref, set, push } from "../firebase";
 import { get, remove } from "firebase/database";
+import LZString from 'lz-string';
+
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const storedUser = sessionStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
+    return storedUser ? JSON.parse(LZString.decompressFromUTF16(storedUser)) : null;
   });
   const [users, setUsers] = useState(null);
   const [links, setLinks] = useState([]);
@@ -20,13 +22,17 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    sessionStorage.setItem("user", JSON.stringify(user));
-  }, [user])
+    if (user) {
+      const compressedUser = LZString.compressToUTF16(JSON.stringify(user));
+      sessionStorage.setItem('user', compressedUser);
+    }
+  }, [user]);
 
 
   const updateUser = (userData) => {
     setUser(userData);
-    sessionStorage.setItem("user", JSON.stringify(userData)); 
+    const compressedUser = LZString.compressToUTF16(JSON.stringify(userData));
+    sessionStorage.setItem('user', compressedUser);
   };
 
   async function getData() {
@@ -39,10 +45,10 @@ export const AppProvider = ({ children }) => {
           let userData = childSnapshot.val();
 
           const data = { userId, userData };
-          allUsers.push(data);  
+          allUsers.push(data);
         });
 
-        setUsers(allUsers);  
+        setUsers(allUsers);
       } else {
         console.log("No data available");
       }
@@ -99,15 +105,15 @@ export const AppProvider = ({ children }) => {
 
   const handleClick = () => {
     setLinks((prevLinks) => {
-      const linksArray = Array.isArray(prevLinks) ? prevLinks : []; 
+      const linksArray = Array.isArray(prevLinks) ? prevLinks : [];
 
       return [
-        ...linksArray, 
-        { platform: "", link: "" } 
+        ...linksArray,
+        { platform: "", link: "" }
       ];
     });
 
-    setCardCounter((prevCounter) => prevCounter + 1); 
+    setCardCounter((prevCounter) => prevCounter + 1);
   };
 
   const deleteLinkFromDb = async (index) => {
@@ -120,7 +126,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const handleRemove = (index) => {
-    deleteLinkFromDb(index); 
+    deleteLinkFromDb(index);
 
     setLinks((prevLinks) => {
       const linksArray = Array.isArray(prevLinks) ? prevLinks : [];
