@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from "./app.module.css";
-import AddLinks from './components/addLinks';
+import AddLinks from './components/AddLinks';
 import { AppContext } from "./context/AppContext";
 import ProfileDetails from './components/ProfileDetails';
 import { useNavigate } from 'react-router';
