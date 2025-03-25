@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./ProfileDetails.module.css";
+import styles from "./profileDetails.module.css";
 import { get, ref, set } from "firebase/database";
 import { database } from "../../firebase";
 
