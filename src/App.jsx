@@ -32,14 +32,14 @@ export default function App() {
   };
 
   const checkSession = () => {
-    const loginTime = sessionStorage.getItem("loginTime");
+    const loginTime = localStorage.getItem("loginTime");
     if (loginTime) {
       const currentTime = new Date().getTime();
       const elapsedTime = currentTime - parseInt(loginTime, 10);
 
       if (elapsedTime > 60 * 15 * 1000) {
-        sessionStorage.removeItem("user");
-        sessionStorage.removeItem("loginTime");
+        localStorage.removeItem("user");
+        localStorage.removeItem("loginTime");
         window.location.reload();
       }
     }

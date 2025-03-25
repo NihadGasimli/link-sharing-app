@@ -42,7 +42,7 @@ const Basic = () => {
                                     showAlert("Logged in succesfully!")
                                     updateUser({ ...users[i].userData, id: users[i].userId });
                                     const currentTime = new Date().getTime(); // Cari zaman (millisaniyə)
-                                    sessionStorage.setItem("loginTime", currentTime);
+                                    localStorage.setItem("loginTime", currentTime);
                                     setTimeout(() => {
                                         navigate("/");
                                     }, 3000);

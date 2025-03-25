@@ -8,7 +8,7 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const storedUser = sessionStorage.getItem("user");
+    const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(LZString.decompressFromUTF16(storedUser)) : null;
   });
   const [users, setUsers] = useState(null);
@@ -24,7 +24,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       const compressedUser = LZString.compressToUTF16(JSON.stringify(user));
-      sessionStorage.setItem('user', compressedUser);
+      localStorage.setItem('user', compressedUser);
     }
   }, [user]);
 
@@ -32,8 +32,8 @@ export const AppProvider = ({ children }) => {
   const updateUser = (userData) => {
     setUser(userData);
     const compressedUser = LZString.compressToUTF16(JSON.stringify(userData));
-    sessionStorage.setItem('user', compressedUser);
-    
+    localStorage.setItem('user', compressedUser);
+
   };
 
   async function getData() {

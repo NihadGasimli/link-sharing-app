@@ -11,8 +11,8 @@ export default function Login() {
 
 
     useEffect(() => {
-        sessionStorage.removeItem("user");
-        sessionStorage.removeItem("loginTime");
+        localStorage.removeItem("user");
+        localStorage.removeItem("loginTime");
     }, [])
 
     return (
