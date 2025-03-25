@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/user/:userId",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  
