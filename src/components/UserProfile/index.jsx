@@ -34,15 +34,16 @@ export default function UserProfile() {
     };
 
     useEffect(() => {
-        for (let i in users) {
-            if (users[i].userId === userId) {
-                setUser(users[i].userData)
-                setLinks(users[i].userData.links)
-                setLoading(false);
-                return
-            }
+        if (!users) return;
+        const foundUser = users.find((user) => user.userId === userId);
+        if (foundUser) {
+          setUser(foundUser.userData);
+          setLinks(foundUser.userData.links);
+          setLoading(false);
+        } else {
+          setLoading(false);
         }
-    }, [users]);
+      }, [users, userId]);
 
     useEffect(() => {
         setTimeout(() => {
