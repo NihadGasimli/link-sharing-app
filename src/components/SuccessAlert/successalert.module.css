@@ -1,0 +1,49 @@
+.successAlert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745; /* Green background */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.successAlertText {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Animation for showing and hiding the alert */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.successAlert {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Animation for hiding */
+.successAlert.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%);
+  visibility: hidden;
+}

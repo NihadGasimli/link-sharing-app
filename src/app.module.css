@@ -1,0 +1,381 @@
+.container {
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    gap: 24px;
+}
+
+.navbar {
+    width: 100%;
+    height: 78px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 1392;
+    border-radius: 12px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+}
+
+.navbar ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navbar ul .navbarLinksAndProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar ul .navbarLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar ul .navbarLogo img {
+    width: 32px;
+}
+
+.navbar ul .navbarLogo h2 {
+    font-family: Instrument Sans;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+.navbar .navbarLinks,
+.navbar .navbarProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 122;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-right: 27px;
+    padding-bottom: 11px;
+    padding-left: 27px;
+}
+
+.navbar .navbarLinks:hover h2,
+.navbar .navbarProfile:hover h2 {
+    color: #633CFF;
+}
+
+.navbar .navbarLinks img,
+.navbar .navbarProfile img {
+    width: 16px;
+}
+
+.navbar .navbarLinks h2,
+.navbar .navbarProfile h2 {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #737373;
+}
+
+.navbar .selected {
+    background-color: #EFEBFF;
+}
+
+.navbar .selected h2 {
+    color: #633CFF;
+}
+
+.navbar .previewBtn {
+    width: 114px;
+    height: 46px;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-right: 27px;
+    padding-bottom: 11px;
+    padding-left: 27px;
+    border-width: 1px;
+    border: 1px solid #633CFF;
+    color: #633CFF;
+    background-color: transparent;
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.navbar .previewBtn:hover {
+    background-color: #EFEBFF;
+}
+
+/*-----------------------------------------------------------------------*/
+
+.main {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+
+.main .leftSide {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 40%;
+    background-color: #fff;
+    border-radius: 12px;
+    padding-top: 100px;
+
+    .phone {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .phone1 {
+        width: 307px;
+        height: 631px;
+        left: auto;
+        position: relative;
+    }
+
+    .phone2 {
+        width: 285px;
+        height: 611px;
+        position: absolute;
+        left: auto;
+        top: 10px;
+    }
+
+    .infoDiv {
+        position: absolute;
+        top: 64px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infoDiv .profileInfoText {
+        gap: 5px;
+    }
+
+    .infoDiv .profileInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        justify-content: center;
+        align-items: center;
+
+        .profilePhoto {
+            width: 96px;
+            height: 96px;
+            border-radius: 104px;
+            background-color: #eee;
+        }
+
+        .profileName {
+            width: 160px;
+            height: 16px;
+            background-color: #eee;
+            border-radius: 104px;
+        }
+
+        .profileEmail {
+            width: 72px;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 104px;
+        }
+
+        .profileNameText {
+            font-family: Instrument Sans;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            color: #333;
+        }
+
+        .profileEmailText {
+            font-family: Instrument Sans;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            color: #737373;
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 80%;
+        margin-top: 50px;
+        overflow: auto;
+        height: 300px;
+    }
+
+    .linkBtn {
+        width: 100%;
+        background-color: #eee;
+        height: 44px;
+        border-radius: 8px;
+        font-family: Instrument Sans;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        border: 0;
+    }
+
+    .linkBtn img {
+        width: 16px;
+        height: 18px;
+    }
+
+    .linkBtn .arrowRight {
+        margin-left: auto;
+    }
+
+    .githubBtn {
+        background-color: #1A1A1A;
+        color: #fff;
+    }
+
+    .youtubeBtn {
+        background-color: #EE3939;
+        color: #fff;
+    }
+
+    .linkedinBtn {
+        background-color: #2D68FF;
+        color: #fff;
+    }
+
+    .facebookBtn {
+        background-color: #2442AC;
+        color: #fff;
+    }
+
+    .twitterBtn {
+        background-color: #1DA1F2;
+        color: #fff;
+    }
+
+    .twitchBtn {
+        background-color: #9146FF;
+        color: #fff;
+    }
+
+    .devtoBtn {
+        background-color: #0A0A0A;
+        color: #fff;
+    }
+
+    .codewarsBtn {
+        background-color: #9B1100;
+        color: #fff;
+    }
+
+    .freecodecampBtn {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+    .gitlabBtn {
+        background-color: #FCA326;
+        color: #fff;
+    }
+
+    .hashnodeBtn {
+        background-color: #2962FF;
+        color: #fff;
+    }
+
+    .stackoverflowBtn {
+        background-color: #FE7A16;
+        color: #fff;
+    }
+
+}
+
+.main .rightSide {
+    width: 60%;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.alertDiv {
+    position: absolute;
+    right: 10px;
+}
+
+@media (max-width:768px) {
+
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .main .leftSide {
+        display: none;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .main .rightSide {
+        width: 100%;
+    }
+
+    .navbar ul .navbarLogo h2 {
+        display: none;
+    }
+
+    .navbarLinks h2,
+    .navbarProfile h2 {
+        display: none;
+    }
+
+    .navbarLinks,
+    .navbarProfile {
+        height: 42px;
+    }
+
+    .navbar .previewBtn {
+        background-image: url("/eye-logo.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 52px;
+        height: 42px;
+    }
+
+    .previewBtn p {
+        display: none;
+    }
+}

@@ -1,0 +1,224 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container h1 {
+    font-family: Instrument Sans;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #333;
+}
+
+.container p {
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #737373;
+    margin-top: 8px;
+}
+
+.profilePhotoDiv {
+    margin-top: 40px;
+    height: 233px;
+    border-radius: 12px;
+    width: 100%;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.profilePhotoDiv .uploadImageDiv {
+    width: 193px;
+    height: 193px;
+    border-radius: 12px;
+    background-color: #EFEBFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: url();
+}
+
+.profilePhotoDiv .uploadImageDiv input {
+    display: none;
+}
+
+.profilePhotoDiv p {
+    width: 215px;
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+.uploadImageText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploadImageText p {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #633CFF;
+    width: 116px;
+}
+
+.changeImageText p {
+    color: #fff;
+}
+
+.infoDiv {
+    width: 100%;
+    height: 208px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background-color: #fafafa;
+    margin-top: 24px;
+    border-radius: 12px;
+}
+
+.infoDiv div {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoDiv div label {
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #737373;
+}
+
+.infoDiv .haveError label {
+    color: red;
+}
+
+.infoDiv .haveError input {
+    border: 1px solid red;
+}
+
+.infoDiv div input {
+    width: 432px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    padding: 12px;
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #333;
+}
+
+.container hr {
+    margin-top: 114px;
+}
+
+.saveBtn {
+    margin-top: 24px;
+    width: 91px;
+    height: 46px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #633CFF;
+    border: 0;
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #fff;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: 0.1s all;
+}
+
+.saveBtn:hover {
+    background-color: #c3b5fb;
+}
+
+@media (max-width:768px) {
+
+    .container {
+        width: 100%;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    .container p {
+        font-size: 16px;
+    }
+
+    .infoDiv input {
+        width: 100%;
+    }
+
+    .profilePhotoDiv {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .profilePhotoDiv p{
+        font-size: 16px;
+    }
+
+    .infoDiv {
+        height: 274px;
+        margin-bottom: 0;
+    }
+
+    .firstNameDiv,
+    .lastNameDiv,
+    .emailDiv {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 12px;
+    }
+
+    .infoDiv .firstNameDiv input,
+    .infoDiv .lastNameDiv input,
+    .infoDiv .emailDiv input {
+        width: 100%;
+    }
+
+    .infoDiv .firstNameDiv label,
+    .infoDiv .lastNameDiv label,
+    .infoDiv .emailDiv label {
+        align-self: flex-start;
+        font-size: 12px;
+    }
+
+    .saveBtn {
+        width: 100%;
+        align-self: center;
+    }
+
+    .container hr {
+        margin-top: 0;
+    }
+}

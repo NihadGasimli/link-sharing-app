@@ -1,0 +1,118 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.emailDiv,
+.passwordDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.emailDiv h2,
+.passwordDiv h2 {
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #333;
+}
+
+.emailDiv .input input,
+.passwordDiv .input input {
+    border-radius: 8px;
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #333;
+    padding: 15px;
+    padding-left: 45px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #D9D9D9
+}
+
+.emailDiv .input input:focus,
+.passwordDiv .input input:focus {
+    outline: none;
+    border: 1px solid #633CFF;
+    box-shadow: 0px 0px 32px 0px #633CFF40;
+
+}
+
+.emailDiv .input,
+.passwordDiv .input {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailDiv .input p,
+.passwordDiv .input p {
+    color: red;
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+
+.emailDiv .input img,
+.passwordDiv .input img {
+    position: absolute;
+    left: 20px;
+    width: 15px;
+}
+
+.loginButton {
+    gap: 8px;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-right: 27px;
+    padding-bottom: 11px;
+    padding-left: 27px;
+    background-color: #633CFF;
+    color: #fff;
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    border: 0;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.loginButton:hover {
+    box-shadow: 0px 0px 32px 0px #633CFF40;
+    background-color: #633CFF40;
+}
+
+.createButton {
+    font-family: Instrument Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #888;
+}
+
+.createButton span {
+    color: #633CFF;
+    cursor: pointer;
+}
+
+.error h2 {
+    color: Red;
+}
