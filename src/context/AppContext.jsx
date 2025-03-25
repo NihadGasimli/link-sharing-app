@@ -33,6 +33,7 @@ export const AppProvider = ({ children }) => {
     setUser(userData);
     const compressedUser = LZString.compressToUTF16(JSON.stringify(userData));
     sessionStorage.setItem('user', compressedUser);
+    
   };
 
   async function getData() {
