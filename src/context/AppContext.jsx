@@ -7,10 +7,7 @@ import LZString from 'lz-string';
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(LZString.decompressFromUTF16(storedUser)) : null;
-  });
+  const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
   const [links, setLinks] = useState([]);
   const [cardCounter, setCardCounter] = useState(0);
@@ -21,19 +18,14 @@ export const AppProvider = ({ children }) => {
     setTimeout(() => setAlert({ message: "", visible: false }), 3000);
   };
 
+
   useEffect(() => {
-    if (user) {
-      const compressedUser = LZString.compressToUTF16(JSON.stringify(user));
-      localStorage.setItem('user', compressedUser);
-    }
-  }, [user]);
+    console.log("aaa")
+  }, [])
 
 
   const updateUser = (userData) => {
     setUser(userData);
-    const compressedUser = LZString.compressToUTF16(JSON.stringify(userData));
-    localStorage.setItem('user', compressedUser);
-
   };
 
   async function getData() {
@@ -64,7 +56,6 @@ export const AppProvider = ({ children }) => {
 
   const handleChange = (event, key, field) => {
     setLinks((prevLinks) => {
-      // Yalnız lazım olan dəyişəni güncəlləyirik
       const updatedLinks = [...prevLinks];
       updatedLinks[key] = { ...updatedLinks[key], [field]: event.target.value };
       return updatedLinks;
@@ -84,7 +75,6 @@ export const AppProvider = ({ children }) => {
       };
 
       await set(userRef, updatedUserData);
-      // alert("Saved succesfully!");
       showAlert("Saved succesfully!")
     } catch (error) {
       console.error("Error saving user data:", error.message);
