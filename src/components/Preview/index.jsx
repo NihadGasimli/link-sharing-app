@@ -1,32 +1,25 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
+import { useRef } from "react";
 import styles from "./preview.module.css";
 import { useNavigate } from "react-router";
+import { QRCodeCanvas } from "qrcode.react";
+
 
 export default function Preview() {
 
     const { user, links, getLinksFromDb } = useContext(AppContext);
     const userProfileLink = `${window.location.origin}/user/${user.id}`;
 
-    const [copied, setCopied] = useState(false);
+    const [showQrModal, setShowQrModal] = useState(false);
+    const [copySuccess, setCopySuccess] = useState(false);
+
+    const modalRef = useRef(null);
+
 
     useEffect(() => {
         getLinksFromDb()
     }, [])
-
-    const handleShare = async () => {
-        try {
-            await navigator.clipboard.writeText(userProfileLink);
-            setCopied(true); 
-
-            setTimeout(() => {
-                setCopied(false);
-            }, 3000); 
-        } catch (err) {
-            console.error("Kopyalama xətası:", err);
-        }
-    };
-
 
     const navigate = useNavigate();
 
@@ -49,16 +42,44 @@ export default function Preview() {
         window.open(link, "_blank");
     };
 
+    useEffect(() => {
+        if (showQrModal) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [showQrModal]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                setShowQrModal(false);
+            }
+        };
+
+        if (showQrModal) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [showQrModal]);
+
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.backgroundDiv}></div>
                 <div className={styles.header}>
                     <button className={styles.backBtn} onClick={() => { navigate("/") }}>Back to Editor</button>
-                    <button className={styles.shareBtn} onClick={handleShare}>Share Link</button>
+                    <div className={styles.shareButtons}>
+                        <button className={styles.shareBtn} onClick={() => setShowQrModal(true)}>Share</button>
+                    </div>
                 </div>
-
-                {copied && <div className={styles.successAlert}>✅ Link Copied!</div>} {/* Uğur mesajı */}
 
                 <div className={styles.userCard}>
                     <img src={user?.image} alt="" className={styles.userImage} />
@@ -95,6 +116,28 @@ export default function Preview() {
                                 : null
                         }
                     </div>
+                    {showQrModal && (
+                        <div className={styles.qrModalOverlay}>
+                            <div className={styles.qrModal} ref={modalRef}>
+                                <button className={styles.closeBtn} onClick={() => setShowQrModal(false)}>✖</button>
+                                <h2>Scan the QR Code</h2>
+                                <QRCodeCanvas value={userProfileLink} size={200} />
+                                <p className={styles.linkText}>{userProfileLink}</p>
+                                <button className={styles.copyBtn} onClick={async () => {
+                                    try {
+                                        await navigator.clipboard.writeText(userProfileLink);
+                                        setCopySuccess(true);
+                                        setTimeout(() => setCopySuccess(false), 2000);
+                                    } catch (err) {
+                                        console.error("Kopyalama xətası:", err);
+                                    }
+                                }}>
+                                    {copySuccess ? "✅ Copied!" : "📋 Copy Link"}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
                 </div>
             </div>
         </>

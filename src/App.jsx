@@ -142,7 +142,7 @@ export default function App() {
 
         <div className={styles.rightSide}>
           {whichPage === "links" ? <AddLinks links={links} setLinks={setLinks} cardCounter={cardCounter} setCardCounter={setCardCounter} handleChange={handleChange} handleRemove={handleRemove} handleClick={handleClick} user={user} saveLinksToDb={saveLinksToDb} getLinksFromDb={getLinksFromDb} showAlert={showAlert} />
-            : <ProfileDetails user={user} setUser={setUser} updateUser={updateUser} showAlert={showAlert}/>}
+            : <ProfileDetails user={user} setUser={setUser} updateUser={updateUser} showAlert={showAlert} />}
         </div>
 
         <div className={styles.alertDiv}>

@@ -21,6 +21,7 @@
     "lucide-react": "^0.483.0",
     "lz-string": "^1.5.0",
     "pako": "^2.1.0",
+    "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",

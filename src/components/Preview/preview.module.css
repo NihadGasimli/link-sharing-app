@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.header .shareButtons {
+    display: flex;
+    gap: 5px;
+}
+
 .header .shareBtn {
     width: 159px;
     height: 46px;
@@ -60,6 +65,63 @@
     letter-spacing: 0%;
     cursor: pointer;
 }
+
+.qrModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.qrModal {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.linkText {
+    margin: 16px 0 10px;
+    font-size: 14px;
+    word-break: break-all;
+    color: #333;
+}
+
+.copyBtn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.copyBtn:hover {
+    background-color: #43a047;
+}
+
 
 .userCard {
     z-index: 3;
@@ -82,7 +144,7 @@
     .email:hover {
         text-decoration: underline;
     }
-    
+
     .userImage {
         width: 104px;
         height: 104px;

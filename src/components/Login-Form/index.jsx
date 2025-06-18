@@ -1,16 +1,14 @@
 // Render Prop
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from "./form.module.css";
 import { useNavigate } from 'react-router';
-import { database, ref, set, push } from "../../firebase";
-import { get } from 'firebase/database';
 import { AppContext } from "../../context/AppContext.jsx"
 
 
 const Basic = () => {
 
-    const { users, setUser, getData, updateUser, showAlert } = useContext(AppContext);
+    const { users, getData, updateUser, showAlert } = useContext(AppContext);
 
     const navigate = useNavigate();
 
@@ -43,6 +41,7 @@ const Basic = () => {
                                     updateUser({ ...users[i].userData, id: users[i].userId });
                                     const currentTime = new Date().getTime(); // Cari zaman (millisaniyə)
                                     localStorage.setItem("loginTime", currentTime);
+                                    localStorage.setItem("user", users[i].userId);
                                     setTimeout(() => {
                                         navigate("/");
                                     }, 3000);
@@ -52,9 +51,7 @@ const Basic = () => {
                             alert("Account not found!")
                         }
                     }
-                    else {
-                        alert("Please wait!")
-                    }
+                    
 
                 }}
             >

@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { database, ref, set, push } from "../firebase";
 import { get, remove } from "firebase/database";
-import LZString from 'lz-string';
 
 
 export const AppContext = createContext();
@@ -18,15 +17,21 @@ export const AppProvider = ({ children }) => {
     setTimeout(() => setAlert({ message: "", visible: false }), 3000);
   };
 
-
-  useEffect(() => {
-    console.log("aaa")
-  }, [])
-
-
   const updateUser = (userData) => {
     setUser(userData);
   };
+
+  // useEffect(() => {
+  //   const id = localStorage.getItem("user");
+
+  //   if (id && users) {
+  //     const foundUser = users.find((u) => u.userId === id);
+  //     if (foundUser) {
+  //       console.log("Tapıldı:", foundUser);
+  //       setUser(foundUser);
+  //     }
+  //   }
+  // }, [users]);
 
   async function getData() {
     try {
@@ -39,8 +44,7 @@ export const AppProvider = ({ children }) => {
 
           const data = { userId, userData };
           allUsers.push(data);
-        });
-
+        })
         setUsers(allUsers);
       } else {
         console.log("No data available");
